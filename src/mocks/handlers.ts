@@ -1,12 +1,8 @@
 import { rest } from 'msw';
+import petsHandlers from './pets/pets-handlers';
 
 const handlers : any[] = [
-    rest.get('/', (req: any, res: any, ctx: any) => {
-        return res(
-            ctx.status(200),
-            ctx.json({ }),
-        );
-  }),
+    ...petsHandlers,
 ];
 
 export default handlers;

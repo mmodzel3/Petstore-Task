@@ -5,7 +5,7 @@ import PetTag from "./pet-tag";
 export default interface Pet {
     id: string,
     name: string,
-    category: PetCategory,
+    category?: PetCategory,
     photoUrls: Array<string>,
     tags: Array<PetTag>,
     status: PetStatus,

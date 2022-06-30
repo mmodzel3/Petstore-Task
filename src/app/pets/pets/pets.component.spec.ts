@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { PetsTableComponent } from '../pets-table/pets-table.component';
@@ -11,7 +12,7 @@ describe('PetsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatTableModule],
+      imports: [MatTableModule, HttpClientTestingModule],
       declarations: [ RefreshablePetsTableComponent, PetsTableComponent, PetsComponent ]
     })
     .compileComponents();

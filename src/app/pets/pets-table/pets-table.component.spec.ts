@@ -42,7 +42,7 @@ describe('PetsTableComponent', () => {
     expect(dataRowCells.length).toBe(component.displayedColumns.length);
     expect(dataRowCells[0].innerHTML).toContain(pet.id);
     expect(dataRowCells[1].innerHTML).toContain(pet.name);
-    expect(dataRowCells[2].innerHTML).toContain(pet.category.name);
+    expect(dataRowCells[2].innerHTML).toContain(pet.category?.name);
     expect(dataRowCells[3].innerHTML).toContain(pet.status);
   });
 });
