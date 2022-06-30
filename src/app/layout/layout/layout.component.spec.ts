@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
 
 import { LayoutComponent } from './layout.component';
 
@@ -8,6 +10,10 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        FlexLayoutModule,
+        MatCardModule
+      ],
       declarations: [ LayoutComponent ]
     })
     .compileComponents();

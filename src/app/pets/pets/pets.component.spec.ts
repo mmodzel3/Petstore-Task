@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatTableModule } from '@angular/material/table';
+import { PetsTableComponent } from '../pets-table/pets-table.component';
+import { RefreshablePetsTableComponent } from '../refreshable-pets-table/refreshable-pets-table.component';
 
 import { PetsComponent } from './pets.component';
 
@@ -8,7 +11,8 @@ describe('PetsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PetsComponent ]
+      imports: [MatTableModule],
+      declarations: [ RefreshablePetsTableComponent, PetsTableComponent, PetsComponent ]
     })
     .compileComponents();
   });
