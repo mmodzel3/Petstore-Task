@@ -1,3 +1,4 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-    <app-pets-table></app-pets-table>
+    <app-refreshable-pets-table fxFlex="grow"
+        [pets]="pets" (refreshClick)="onRefresh()"></app-refreshable-pets-table>
 </div>

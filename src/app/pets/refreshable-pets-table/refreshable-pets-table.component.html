@@ -1,0 +1,9 @@
+<div fxLayout="column" class="pets-table">
+    <div fxLayout="row">
+        <div fxFlex="noshrink">Available pets</div>
+        <div fxFlex="grow"></div>
+        <button fxFlex="noshrink" mat-raised-button color="primary" 
+            (click)="onRefresh()">Refresh</button>
+    </div>
+    <app-pets-table [pets]="pets"></app-pets-table>
+</div>
