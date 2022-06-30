@@ -1,7 +1,7 @@
 enum PetStatus {
-    available,
-    pending,
-    sold,
+    available = 'available',
+    pending = 'pending',
+    sold = 'sold',
 };
 
 export default PetStatus;
