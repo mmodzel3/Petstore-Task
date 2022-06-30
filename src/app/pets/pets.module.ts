@@ -7,6 +7,8 @@ import { MatTableModule } from "@angular/material/table";
 import { RefreshablePetsTableComponent } from './refreshable-pets-table/refreshable-pets-table.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { PetsFormComponent } from './pets-form/pets-form.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -14,14 +16,16 @@ import { MatButtonModule } from '@angular/material/button';
   declarations: [
     PetsComponent,
     PetsTableComponent,
-    RefreshablePetsTableComponent
+    RefreshablePetsTableComponent,
+    PetsFormComponent
   ],
   imports: [
     CommonModule,
     PetsRoutingModule,
     FlexLayoutModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ]
 })
 export class PetsModule { }
