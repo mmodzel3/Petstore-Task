@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import Pet from '../pet';
-import PetStatus from '../pet-status';
-import petsMock from '../../../mocks/pets/pets-mock';
 
 @Component({
   selector: 'app-pets-table',
@@ -10,7 +8,7 @@ import petsMock from '../../../mocks/pets/pets-mock';
 })
 export class PetsTableComponent implements OnInit {
 
-  @Input() pets: Array<Pet> = petsMock;
+  @Input() pets: Array<Pet> = [];
 
   displayedColumns: Array<string> = ['id', 'name', 'category', 'status'];
   

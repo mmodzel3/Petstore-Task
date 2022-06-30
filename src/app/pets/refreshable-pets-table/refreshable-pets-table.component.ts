@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import Pet from '../pet';
-import petsMock from '../../../mocks/pets/pets-mock';
 
 @Component({
   selector: 'app-refreshable-pets-table',
@@ -9,7 +8,7 @@ import petsMock from '../../../mocks/pets/pets-mock';
 })
 export class RefreshablePetsTableComponent implements OnInit {
 
-  @Input() pets : Array<Pet> = petsMock;
+  @Input() pets : Array<Pet> = [];
   @Output() refreshClick = new EventEmitter();
 
   constructor() { }

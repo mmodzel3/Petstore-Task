@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import petsMock from '../../../mocks/pets/pets-mock';
 import Pet from '../pet';
 import { PetsService } from '../pets.service';
 
@@ -10,7 +9,7 @@ import { PetsService } from '../pets.service';
 })
 export class PetsComponent implements OnInit {
 
-  pets: Array<Pet> = petsMock;
+  pets: Array<Pet> = [];
   
   constructor(private petsService : PetsService) { }
 
