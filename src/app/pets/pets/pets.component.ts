@@ -12,17 +12,8 @@ export class PetsComponent implements OnInit {
 
   disabledForm: boolean = true;
 
-  set pets(pets: Array<Pet>) {
-    this._pets = pets;
-    this.petsNames = new Set([...pets.map(pet => pet.name ? pet.name : ''), ...this.petsNames]);
-  }
-  get pets(): Array<Pet> {
-    return this._pets;
-  }
-
-  petsNames: Set<string> = new Set([]);
-
-  private _pets: Array<Pet> = [];
+  pets: Array<Pet> = [];
+  reservedPetsNames: Set<string> = new Set([]);
   
   constructor(private petsService : PetsService, private snackBar: MatSnackBar) { }
 
@@ -49,6 +40,6 @@ export class PetsComponent implements OnInit {
 
   onAddPet(pet: Pet): void {
     this.retrieveAvailablePets();
-    this.petsNames = new Set([...this.petsNames, pet.name ? pet.name : '']);
+    this.reservedPetsNames = new Set([...this.reservedPetsNames, pet.name ? pet.name : '']);
   }
 }

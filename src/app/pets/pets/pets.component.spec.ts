@@ -57,4 +57,13 @@ describe('PetsComponent', () => {
 
     expect(snackbarMock.open).toHaveBeenCalledWith('Error during pets retrieval from server', 'Dismiss');
   });
+
+  it('should add reserved name when new pet is added', () => {
+    const pet = petsMock[0];
+
+    createComponent();
+    component.onAddPet(pet);
+
+    expect(component.reservedPetsNames).toContain(pet.name);
+  });
 });
