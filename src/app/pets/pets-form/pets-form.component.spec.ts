@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { PetsFormComponent } from './pets-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import Pet from '../pet';
+import PetStatus from '../pet-status';
 
 describe('PetsFormComponent', () => {
   let component: PetsFormComponent;
@@ -45,6 +46,7 @@ describe('PetsFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PetsFormComponent);
     component = fixture.componentInstance;
+    component.disabled = false;
     fixture.detectChanges();
   });
 
@@ -67,6 +69,60 @@ describe('PetsFormComponent', () => {
     component.onAddClick();
 
     expect(petsServiceMock.addPet).not.toHaveBeenCalled();
+  });
+
+  it('should has required error when id field not filled', () => {
+    component.getFormControl('name').setValue('name');
+    component.getFormControl('status').setValue(PetStatus.available);
+
+    fixture.detectChanges();
+
+    component.onAddClick();
+
+    fixture.detectChanges();
+
+    expect(component.getFormControl('id').hasError('required')).toBeTrue();
+  });
+
+  it('should has required error when name field not filled', () => {
+    component.getFormControl('id').setValue('id');
+    component.getFormControl('status').setValue(PetStatus.available);
+
+    fixture.detectChanges();
+
+    component.onAddClick();
+
+    fixture.detectChanges();
+
+    expect(component.getFormControl('name').hasError('required')).toBeTrue();
+  });
+
+  it('should has required error when name field is equal to one of reservedNames', () => {
+    const reservedName = 'test';
+
+    component.reservedNames = new Set([reservedName]);
+    component.getFormControl('name').setValue(reservedName);
+
+    fixture.detectChanges();
+
+    component.onAddClick();
+
+    fixture.detectChanges();
+
+    expect(component.getFormControl('name').hasError('notIncludes')).toBeTrue();
+  });
+
+  it('should has required error when status field not filled', () => {
+    component.getFormControl('id').setValue('id');
+    component.getFormControl('name').setValue(name);
+
+    fixture.detectChanges();
+
+    component.onAddClick();
+
+    fixture.detectChanges();
+
+    expect(component.getFormControl('status').hasError('required')).toBeTrue();
   });
 
   it('should show snackbar on success', () => {

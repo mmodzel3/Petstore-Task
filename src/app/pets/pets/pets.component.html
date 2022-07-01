@@ -4,5 +4,6 @@
         (refreshClick)="onRefresh()"></app-refreshable-pets-table>
     <app-pets-form fxFlex="45"
         [disabled]="disabledForm"
-        (addedPet)="onAddPet()"></app-pets-form>
+        [reservedNames]="petsNames"
+        (addedPet)="onAddPet($event)"></app-pets-form>
 </div>
