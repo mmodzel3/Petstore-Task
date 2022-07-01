@@ -9,7 +9,7 @@
         <mat-label>Enter pet's name</mat-label>
         <input matInput placeholder="Name" [formControl]="getFormControl('name')" required>
         <mat-error *ngIf="getFormControl('name').hasError('required')">Required</mat-error>
-        <mat-error *ngIf="!getFormControl('name').hasError('required') && getFormControl('name').hasError('notIncludes')">Name exists</mat-error>
+        <mat-error *ngIf="getFormControl('name').hasError('notIncludes')">Name exists</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">

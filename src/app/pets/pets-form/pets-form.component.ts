@@ -56,7 +56,7 @@ export class PetsFormComponent implements OnInit {
   }
 
   onAddClick(): void {
-    this.form.markAsTouched();
+    this.form.markAllAsTouched();
 
     if (this.form.valid) {
       const pet : Pet = this.form.getRawValue();
