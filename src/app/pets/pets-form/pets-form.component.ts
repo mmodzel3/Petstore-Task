@@ -56,11 +56,12 @@ export class PetsFormComponent implements OnInit {
   addPet(pet: Pet): void {
     this.adding = true;
     this.petsService.addPet(pet).subscribe(_ => {
+      this.snackbar.open('Pet added', 'Dismiss');
       this.addedPet.emit(pet);
       this.resetForm();
       this.adding = false;
     }, err => {
-      this.snackbar.open(`Error during adding pet: ${err}`, 'Dismiss');
+      this.snackbar.open(`Error during adding pet: ${err.message}`, 'Dismiss');
       this.adding = false;
     })
   }

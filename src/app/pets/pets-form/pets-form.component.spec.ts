@@ -69,6 +69,20 @@ describe('PetsFormComponent', () => {
     expect(petsServiceMock.addPet).not.toHaveBeenCalled();
   });
 
+  it('should show snackbar on success', () => {
+    const pet = petsMock[0];
+
+    petsServiceMock.addPet.and.returnValue(of(pet));
+
+    fillFields(pet);
+
+    fixture.detectChanges();
+
+    component.onAddClick();
+
+    expect(snackbarMock.open).toHaveBeenCalledWith('Pet added', 'Dismiss');
+  });
+
   it('should show snackbar on error', () => {
     const errorMsg = 'ErrorMsg';
     const error = new Error(errorMsg);
@@ -82,6 +96,6 @@ describe('PetsFormComponent', () => {
 
     component.onAddClick();
 
-    expect(snackbarMock.open).toHaveBeenCalledWith(`Error during adding pet: ${error}`, 'Dismiss');
+    expect(snackbarMock.open).toHaveBeenCalledWith(`Error during adding pet: ${errorMsg}`, 'Dismiss');
   });
 });
