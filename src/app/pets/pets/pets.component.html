@@ -1,7 +1,8 @@
-<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px">
+<div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="50px">
     <app-refreshable-pets-table fxFlex="0 0 45"
         [pets]="pets" 
         (refreshClick)="onRefresh()"></app-refreshable-pets-table>
+    
     <app-pets-form fxFlex="0 0 45"
         [disabled]="disabledForm"
         [reservedNames]="reservedPetsNames"
