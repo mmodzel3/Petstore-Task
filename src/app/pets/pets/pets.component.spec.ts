@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 describe('PetsComponent', () => {
   let component: PetsComponent;
@@ -28,7 +29,7 @@ describe('PetsComponent', () => {
     snackbarMock = jasmine.createSpyObj('MatSnackBar', ['open']);
 
     await TestBed.configureTestingModule({
-      imports: [MatTableModule, MatSnackBarModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, BrowserAnimationsModule ],
+      imports: [MatTableModule, MatSnackBarModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, BrowserAnimationsModule, MatPaginatorModule ],
       declarations: [ RefreshablePetsTableComponent, PetsTableComponent, PetsFormComponent, PetsComponent ],
       providers: [
         { provide: PetsService, useValue: petsServiceMock },

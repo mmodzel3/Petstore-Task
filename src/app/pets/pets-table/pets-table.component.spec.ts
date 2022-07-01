@@ -2,7 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PetsTableComponent } from './pets-table.component';
 import petsMock from '../../../mocks/pets/pets-mock';
 import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from '@angular/material/paginator';
 import Pet from '../pet';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('PetsTableComponent', () => {
   let component: PetsTableComponent;
@@ -10,7 +12,7 @@ describe('PetsTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatTableModule],
+      imports: [ MatTableModule, MatPaginatorModule, BrowserAnimationsModule ],
       declarations: [ PetsTableComponent ]
     })
     .compileComponents();

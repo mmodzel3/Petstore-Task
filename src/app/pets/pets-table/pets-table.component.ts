@@ -26,7 +26,6 @@ export class PetsTableComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.paginator);
     if (this.paginator) {
       this.dataSource.paginator = this.paginator;
     }
