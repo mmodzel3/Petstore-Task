@@ -1,0 +1,27 @@
+<div fxLayout="column">
+    <mat-form-field appearance="outline">
+        <mat-label>Enter ID</mat-label>
+        <input matInput placeholder="ID" [formControl]="getFormControl('id')" required>
+        <mat-error *ngIf="getFormControl('id').invalid">Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Enter pet's name</mat-label>
+        <input matInput placeholder="Name" [formControl]="getFormControl('name')" required>
+        <mat-error *ngIf="getFormControl('name').invalid">Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Choose pet's status</mat-label>
+        <mat-select [formControl]="getFormControl('status')" required>
+            <mat-option *ngFor="let status of petStatuses" [value]="status">
+              {{status}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="getFormControl('status').invalid">Required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" 
+        (click)="onAddClick()"
+        [disabled]="form.disabled">Add</button>
+</div>

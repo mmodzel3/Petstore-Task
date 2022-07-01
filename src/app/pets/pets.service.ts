@@ -14,4 +14,8 @@ export class PetsService {
     const params = new HttpParams().set('status', 'available');
     return this.httpClient.get<Array<Pet>>('pet/findByStatus', { params });
   }
+
+  addPet(pet: Pet): Observable<any> {
+    return this.httpClient.post<any>('pet', pet);
+  }
 }

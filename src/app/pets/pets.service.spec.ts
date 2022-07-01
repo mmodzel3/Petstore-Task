@@ -29,4 +29,18 @@ describe('PetsService', () => {
 
     req.flush(petsMock);
   });
+
+  it('should add pet to server', () => {
+    const pet = petsMock[0];
+
+    service.addPet(pet).subscribe(_ => {
+
+    });
+
+    const req = httpMock.expectOne(`pet`);
+    expect(req.request.method).toBe("POST");
+    expect(req.request.body).toBe(pet);
+
+    req.flush(petsMock);
+  });
 });

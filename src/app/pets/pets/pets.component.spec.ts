@@ -6,8 +6,13 @@ import petsMock from '../../../mocks/pets/pets-mock';
 import { PetsTableComponent } from '../pets-table/pets-table.component';
 import { PetsService } from '../pets.service';
 import { RefreshablePetsTableComponent } from '../refreshable-pets-table/refreshable-pets-table.component';
-
+import { PetsFormComponent } from '../pets-form/pets-form.component';
 import { PetsComponent } from './pets.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('PetsComponent', () => {
   let component: PetsComponent;
@@ -23,8 +28,8 @@ describe('PetsComponent', () => {
     snackbarMock = jasmine.createSpyObj('MatSnackBar', ['open']);
 
     await TestBed.configureTestingModule({
-      imports: [MatTableModule, MatSnackBarModule],
-      declarations: [ RefreshablePetsTableComponent, PetsTableComponent, PetsComponent ],
+      imports: [MatTableModule, MatSnackBarModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, BrowserAnimationsModule ],
+      declarations: [ RefreshablePetsTableComponent, PetsTableComponent, PetsFormComponent, PetsComponent ],
       providers: [
         { provide: PetsService, useValue: petsServiceMock },
         { provide: MatSnackBar, useValue: snackbarMock }

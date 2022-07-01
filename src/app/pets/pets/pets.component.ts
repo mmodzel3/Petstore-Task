@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class PetsComponent implements OnInit {
 
+  disabledForm: boolean = true;
   pets: Array<Pet> = [];
   
   constructor(private petsService : PetsService, private snackBar: MatSnackBar) { }
@@ -21,6 +22,7 @@ export class PetsComponent implements OnInit {
   retrieveAvailablePets(): void {
     this.petsService.getAvailablePets().subscribe((pets: Array<Pet>) => {
       this.pets = pets;
+      this.disabledForm = false;
     }, _ => {
       this.onRetrieveError();
     })
@@ -34,4 +36,7 @@ export class PetsComponent implements OnInit {
     this.snackBar.open('Error during pets retrieval from server', 'Dismiss');
   }
 
+  onAddPet(): void {
+    this.retrieveAvailablePets();
+  }
 }
