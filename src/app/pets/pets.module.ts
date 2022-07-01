@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { DirtyTouchedErrorStateMatcher } from './pets-form/dirty-touched-state-matcher';
 
@@ -35,7 +36,8 @@ import { DirtyTouchedErrorStateMatcher } from './pets-form/dirty-touched-state-m
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [{ provide: ErrorStateMatcher, useClass: DirtyTouchedErrorStateMatcher }],
 })
