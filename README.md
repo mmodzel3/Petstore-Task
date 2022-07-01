@@ -1,16 +1,17 @@
 # PetstoreTask
 
 ## Task description 
-Create Angular application that gives possibility to get all available pets and add new one using Petstore API (petstore.swagger.io/v2).
+Create Angular application that gives possibility to display all available pets and add new one using Petstore API (petstore.swagger.io/v2).
 
 ## Running
 - ng serve - running server in development mode with mocked server (does not use petstore.swagger.io/v2 address, stores content in browser).
-- ng serve --configuration production - running server with access to petstore.swagger.io/v2 API).
+- ng serve --configuration production - running server with access to Petstore API (petstore.swagger.io/v2).
 - ng test - test running
 - ng build / npm run build - building a package with application
 
 ## Libraries
 - Material - design of web page and components
+- flex-layout - simplify use of flex layout
 - jasmine / karma - testing
 - msw - mocked server
 
